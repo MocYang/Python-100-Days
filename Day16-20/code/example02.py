@@ -71,6 +71,8 @@ def bubble_sort(origin_items, *, comp=lambda x, y: x > y):
             if comp(items[j], items[j + 1]):
                 items[j], items[j + 1] = items[j + 1], items[j]
                 swapped = True
+
+        # 做一次从后面往前的冒泡，相当于总的比较次数减少一半（N * 1 / 2  * N)）
         if swapped:
             swapped = False
             for j in range(len(items) - i - 1, i - 1, -1):
@@ -125,7 +127,7 @@ def _quick_sort(items, start, end, comp):
 
 def _partition(items, start, end, comp):
     """划分"""
-    pivot = items[end]
+    pivot = items[end]  # 直接选最后一个元素作枢纽元并不是好的做法。
     i = start - 1
     for j in range(start, end):
         if comp(items[j], pivot):

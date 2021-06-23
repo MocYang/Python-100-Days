@@ -48,7 +48,7 @@ class Salesman(Employee):
         return 1800.0 + self.sales * 0.05
 
 
-class EmployeeFactory():
+class EmployeeFactory:
     """创建员工的工厂（工厂模式 - 通过工厂实现对象使用者和对象之间的解耦合）"""
 
     @staticmethod
